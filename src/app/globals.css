@@ -95,3 +95,11 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Fallback: ensure content visible if JS/IntersectionObserver fails */
+@media (prefers-reduced-motion: reduce) {
+  [style*="opacity: 0"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

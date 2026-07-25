@@ -10,5 +10,5 @@ export function formatPrice(price: number) {
 }
 
 export function waLink(text: string) {
-  return `https://wa.me/919999999999?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/918088145310?text=${encodeURIComponent(text)}`;
 }

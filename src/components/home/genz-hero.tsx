@@ -73,5 +73,5 @@ export function GenZHero() {
 }
 
 function waLink() {
-  return "https://wa.me/919999999999?text=Hey! I want to cop from CAPSULE";
+  return "https://wa.me/918088145310?text=Hey! I want to cop from CAPSULE";
 }

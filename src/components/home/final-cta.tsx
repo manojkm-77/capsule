@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import Link from "next/link";
 import { MessageCircle, ArrowRight } from "lucide-react";
 
@@ -9,11 +9,7 @@ export function FinalCTA() {
     <section className="relative overflow-hidden border-t border-white/5 py-16 sm:py-28">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(215,255,31,0.05),transparent_60%)]" />
       <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <ScrollReveal>
           <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.2em] text-lime">
             Let's Go
           </span>
@@ -44,12 +40,12 @@ export function FinalCTA() {
               Browse Collection
             </Link>
           </div>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );
 }
 
 function waLink(text: string) {
-  return `https://wa.me/919999999999?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/918088145310?text=${encodeURIComponent(text)}`;
 }

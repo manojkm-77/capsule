@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Camera, Image, MessageCircle, MapPin } from "lucide-react";
 import Link from "next/link";
 
@@ -67,52 +68,48 @@ export default function CommunityPage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-10"
-        >
-          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-lime/20 bg-lime/5">
-            <MapPin className="h-5 w-5 text-lime" />
+        <ScrollReveal>
+          <div className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-10">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-lime/20 bg-lime/5">
+              <MapPin className="h-5 w-5 text-lime" />
+            </div>
+            <h2 className="font-display text-xl sm:text-2xl tracking-tight">
+              India's <span className="text-lime">Capsule</span>
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-white/40">
+              From Bengaluru to Goa, Delhi to Chennai — we've shipped to 25+ cities.
+              Every cap carries a story. Where will yours go?
+            </p>
           </div>
-          <h2 className="font-display text-xl sm:text-2xl tracking-tight">
-            India's <span className="text-lime">Capsule</span>
-          </h2>
-          <p className="mt-4 text-sm leading-relaxed text-white/40">
-            From Bengaluru to Goa, Delhi to Chennai — we've shipped to 25+ cities.
-            Every cap carries a story. Where will yours go?
-          </p>
-        </motion.div>
+        </ScrollReveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-10"
-        >
-          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-lime/20 bg-lime/5">
-            <MessageCircle className="h-5 w-5 text-lime" />
+        <ScrollReveal delay={0.1}>
+          <div className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-10">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-lime/20 bg-lime/5">
+              <MessageCircle className="h-5 w-5 text-lime" />
+            </div>
+            <h2 className="font-display text-xl sm:text-2xl tracking-tight">
+              Join the <span className="text-lime">Movement</span>
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-white/40">
+              Follow us on Instagram, share your fit with #CapsuleCaps, and be part of the
+              next drop. DM us — we actually reply.
+            </p>
+            <Link
+              href={waLink("Hey CAPSULE! I want to be part of the community!")}
+              target="_blank"
+              rel="noopener"
+              className="mt-4 sm:mt-6 inline-flex items-center gap-2 rounded-full bg-lime px-5 sm:px-6 py-2.5 sm:py-3 text-[0.65rem] sm:text-[0.7rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
+            >
+              <MessageCircle className="h-4 w-4" /> Join on WhatsApp
+            </Link>
           </div>
-          <h2 className="font-display text-xl sm:text-2xl tracking-tight">
-            Join the <span className="text-lime">Movement</span>
-          </h2>
-          <p className="mt-4 text-sm leading-relaxed text-white/40">
-            Follow us on Instagram, share your fit with #CapsuleCaps, and be part of the
-            next drop. DM us — we actually reply.
-          </p>
-          <Link
-            href={waLink("Hey CAPSULE! I want to be part of the community!")}
-            target="_blank"
-            rel="noopener"
-            className="mt-4 sm:mt-6 inline-flex items-center gap-2 rounded-full bg-lime px-5 sm:px-6 py-2.5 sm:py-3 text-[0.65rem] sm:text-[0.7rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
-          >
-            <MessageCircle className="h-4 w-4" /> Join on WhatsApp
-          </Link>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </div>
   );
 }
 
 function waLink(text: string) {
-  return `https://wa.me/919999999999?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/918088145310?text=${encodeURIComponent(text)}`;
 }
