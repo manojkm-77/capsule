@@ -6,9 +6,9 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 py-28">
+    <section className="relative overflow-hidden border-t border-white/5 py-16 sm:py-28">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(215,255,31,0.05),transparent_60%)]" />
-      <div className="mx-auto max-w-3xl px-6 text-center">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ export function FinalCTA() {
               href={waLink("Hey! I want to order from CAPSULE")}
               target="_blank"
               rel="noopener"
-              className="group inline-flex items-center gap-2 rounded-full bg-lime px-8 py-4 text-[0.75rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
+              className="group inline-flex items-center gap-2 rounded-full bg-lime px-6 sm:px-8 py-3.5 sm:py-4 text-[0.7rem] sm:text-[0.75rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
             >
               <MessageCircle className="h-4 w-4" />
               DM to Cop
@@ -39,7 +39,7 @@ export function FinalCTA() {
             </Link>
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-8 py-4 text-[0.75rem] font-bold uppercase tracking-wider text-stitch transition-all hover:border-lime/50"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 sm:px-8 py-3.5 sm:py-4 text-[0.7rem] sm:text-[0.75rem] font-bold uppercase tracking-wider text-stitch transition-all hover:border-lime/50"
             >
               Browse Collection
             </Link>

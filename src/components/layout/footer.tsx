@@ -29,9 +29,9 @@ export function Footer() {
 
   return (
     <footer className="border-t border-white/5 bg-dark/50">
-      <div className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
-          <div className="lg:col-span-2">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
+        <div className="grid gap-8 sm:gap-12 grid-cols-2 md:grid-cols-2 lg:grid-cols-5">
+          <div className="col-span-2 lg:col-span-2">
             <Link href="/" className="font-display text-2xl tracking-wider">
               CAPSULE<span className="text-lime">.</span>
             </Link>
@@ -70,7 +70,7 @@ export function Footer() {
           ))}
         </div>
       </div>
-      <div className="border-t border-white/5 px-6 py-6">
+      <div className="border-t border-white/5 px-4 sm:px-6 py-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-[0.7rem] text-white/30 md:flex-row">
           <p>© 2026 CAPSULE. All rights reserved.</p>
           <p>Bengaluru, India — Fitted, not basic.</p>

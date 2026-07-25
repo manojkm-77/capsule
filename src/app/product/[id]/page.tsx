@@ -35,7 +35,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-12">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
       <Link
         href="/shop"
         className="mb-8 inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-wider text-white/40 transition-colors hover:text-lime"
@@ -43,13 +43,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         <ArrowLeft className="h-3.5 w-3.5" /> Back
       </Link>
 
-      <div className="grid gap-12 lg:grid-cols-2">
+      <div className="grid gap-8 sm:gap-12 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           className="relative"
         >
-          <div className="relative overflow-hidden rounded-3xl bg-card">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-card">
             <img
               src={product.images[selectedImg]}
               alt={product.name}
@@ -73,7 +73,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               </span>
             )}
           </div>
-          <div className="mt-3 flex gap-2">
+          <div className="mt-3 flex gap-2 overflow-x-auto no-scrollbar">
             {product.images.map((img, i) => (
               <button key={i} onClick={() => setSelectedImg(i)}
                 className={`h-16 w-16 shrink-0 overflow-hidden rounded-xl border-2 transition-all ${
@@ -134,18 +134,18 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             <div className="flex flex-col gap-3 sm:flex-row">
               <button
                 onClick={handleAdd}
-                className="flex items-center justify-center gap-2 rounded-full bg-lime px-10 py-4 text-[0.75rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
+                className="flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-full bg-lime px-8 sm:px-10 py-4 text-[0.75rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
               >
                 <ShoppingBag className="h-4 w-4" />
                 {inCart > 0 ? `Add Another (${inCart})` : "Add to Cart"}
               </button>
-              <button className="flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-4 text-[0.7rem] font-semibold uppercase tracking-wider text-white/50 transition-colors hover:border-lime/30 hover:text-lime">
+              <button className="flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-4 text-[0.7rem] font-semibold uppercase tracking-wider text-white/50 transition-colors hover:border-lime/30 hover:text-lime">
                 <Share2 className="h-4 w-4" />
                 Share
               </button>
             </div>
 
-            <div className="mt-8 grid grid-cols-3 gap-4 rounded-3xl border border-white/5 bg-card/30 p-5">
+            <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-3 sm:gap-4 rounded-3xl border border-white/5 bg-card/30 p-4 sm:p-5">
               <div className="text-center">
                 <Scissors className="mx-auto mb-2 h-5 w-5 text-lime/60" />
                 <p className="text-[0.6rem] font-semibold uppercase text-white/40">Stitched</p>

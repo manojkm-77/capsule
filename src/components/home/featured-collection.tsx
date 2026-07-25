@@ -16,13 +16,13 @@ export function FeaturedCollection() {
   const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section id="collections" ref={ref} className="relative overflow-hidden py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="collections" ref={ref} className="relative overflow-hidden py-16 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16 flex items-end justify-between"
+          className="mb-10 sm:mb-16 flex items-end justify-between"
         >
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-lime/20 bg-lime/5 px-4 py-1.5">
@@ -46,7 +46,7 @@ export function FeaturedCollection() {
           </Link>
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
           {products.slice(0, 4).map((product, i) => (
             <motion.div
               key={product.id}
@@ -57,7 +57,7 @@ export function FeaturedCollection() {
               style={{ y }}
             >
               <Link href={`/product/${product.id}`} className="group block">
-                <div className="relative mb-4 overflow-hidden rounded-3xl bg-card">
+                <div className="relative mb-3 sm:mb-4 overflow-hidden rounded-2xl sm:rounded-3xl bg-card">
                   <img
                     src={product.images[0]}
                     alt={product.name}

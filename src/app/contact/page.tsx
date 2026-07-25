@@ -6,11 +6,11 @@ import Link from "next/link";
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-20">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-16 max-w-3xl"
+        className="mb-10 sm:mb-16 max-w-3xl"
       >
         <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.2em] text-lime">
           Contact
@@ -56,7 +56,7 @@ export default function ContactPage() {
           ].map((item) => (
             <div
               key={item.title}
-              className="flex items-center gap-5 rounded-3xl border border-white/5 bg-card/50 p-6 transition-all hover:border-white/10"
+              className="flex items-center gap-3 sm:gap-5 rounded-2xl sm:rounded-3xl border border-white/5 bg-card/50 p-4 sm:p-6 transition-all hover:border-white/10"
             >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-lime/20 bg-lime/5">
                 <item.icon className="h-5 w-5 text-lime" />
@@ -80,7 +80,7 @@ export default function ContactPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
-          className="rounded-3xl border border-white/5 bg-card/50 p-8"
+          className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-8"
         >
           <h2 className="font-display text-2xl tracking-tight">
             Send a <span className="text-lime">Message</span>

@@ -13,11 +13,11 @@ const STATS = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-20">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-20 max-w-3xl"
+        className="mb-12 sm:mb-20 max-w-3xl"
       >
         <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.2em] text-lime">
           About
@@ -36,7 +36,7 @@ export default function AboutPage() {
         </p>
       </motion.div>
 
-      <div className="mb-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-12 sm:mb-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {STATS.map((stat, i) => (
           <motion.div
             key={stat.label}
@@ -58,9 +58,9 @@ export default function AboutPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="rounded-3xl border border-white/5 bg-card/50 p-10"
+          className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-10"
         >
-          <h2 className="font-display text-3xl tracking-tight">
+          <h2 className="font-display text-2xl sm:text-3xl tracking-tight">
             Our <span className="text-lime">Process</span>
           </h2>
           <div className="mt-6 space-y-5">
@@ -83,9 +83,9 @@ export default function AboutPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="rounded-3xl border border-white/5 bg-card/50 p-10"
+          className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-10"
         >
-          <h2 className="font-display text-3xl tracking-tight">
+          <h2 className="font-display text-2xl sm:text-3xl tracking-tight">
             Join the <span className="text-lime">Community</span>
           </h2>
           <p className="mt-6 text-sm leading-relaxed text-white/40">

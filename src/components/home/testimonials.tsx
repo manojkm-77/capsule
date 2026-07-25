@@ -6,13 +6,13 @@ import { testimonials } from "@/lib/data";
 
 export function Testimonials() {
   return (
-    <section className="relative overflow-hidden py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="relative overflow-hidden py-16 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 max-w-2xl"
+          className="mb-10 sm:mb-16 max-w-2xl"
         >
           <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.2em] text-lime">
             Testimonials
@@ -32,7 +32,7 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="group rounded-3xl border border-white/5 bg-card/50 p-8 transition-all hover:border-lime/10 hover:bg-lime/[0.02]"
+              className="group rounded-3xl border border-white/5 bg-card/50 p-5 sm:p-8 transition-all hover:border-lime/10 hover:bg-lime/[0.02]"
             >
               <div className="mb-4 flex gap-1">
                 {Array.from({ length: 5 }).map((_, idx) => (

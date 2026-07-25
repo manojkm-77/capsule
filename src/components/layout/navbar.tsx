@@ -38,7 +38,7 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="relative z-10">
           <span className="font-display text-2xl tracking-wider">
             CAPSULE<span className="text-lime">.</span>

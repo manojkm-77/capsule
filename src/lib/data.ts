@@ -22,7 +22,7 @@ export function formatDate(date: string | Date) {
 }
 
 export const products = [
-  { id: "1", name: "Court Black Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 3, color: "#0B0B0B", images: ["/products/product-1.svg", "/products/product-1.svg", "/products/product-4.svg", "/products/product-1.svg", "/products/product-4.svg"], badge: "Low Stock" },
+  { id: "1", name: "Court Black Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 3, color: "#0B0B0B", images: ["/products/product-1.jpg", "/products/product-1.jpg", "/products/product-4.svg", "/products/product-1.jpg", "/products/product-4.svg"], badge: "Low Stock" },
   { id: "2", name: "Lime Snapback", category: "Snapback", price: 1699, originalPrice: 2699, stock: 24, color: "#1a1a1a", images: ["/products/product-2.svg", "/products/product-2.svg", "/products/product-5.svg", "/products/product-2.svg", "/products/product-5.svg"], badge: "Best Seller" },
   { id: "3", name: "Shadow Dad Hat", category: "Dad Hat", price: 1299, originalPrice: 1999, stock: 8, color: "#161616", images: ["/products/product-3.svg", "/products/product-3.svg", "/products/product-6.svg", "/products/product-3.svg", "/products/product-6.svg"], badge: "New" },
   { id: "4", name: "Onyx Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 2, color: "#0D0D0D", images: ["/products/product-4.svg", "/products/product-4.svg", "/products/product-7.svg", "/products/product-4.svg", "/products/product-7.svg"], badge: "Limited" },

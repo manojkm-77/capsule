@@ -16,13 +16,13 @@ const GALLERY = [
 
 export function CommunityGallery() {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="relative overflow-hidden border-t border-white/5 py-16 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 max-w-2xl"
+          className="mb-10 sm:mb-16 max-w-2xl"
         >
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-lime/20 bg-lime/5 px-4 py-1.5">
             <Camera className="h-3 w-3 text-lime" />
@@ -45,7 +45,7 @@ export function CommunityGallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="group relative aspect-square overflow-hidden rounded-3xl bg-card"
+              className="group relative aspect-square overflow-hidden rounded-2xl sm:rounded-3xl bg-card"
             >
               <div
                 className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"

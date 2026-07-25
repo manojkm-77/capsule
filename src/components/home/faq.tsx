@@ -9,13 +9,13 @@ export function FAQ() {
   const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <section id="faq" className="relative overflow-hidden border-t border-white/5 py-28">
-      <div className="mx-auto max-w-3xl px-6">
+    <section id="faq" className="relative overflow-hidden border-t border-white/5 py-16 sm:py-28">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-10 sm:mb-16 text-center"
         >
           <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.2em] text-lime">
             FAQ

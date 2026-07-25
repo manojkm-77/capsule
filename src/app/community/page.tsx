@@ -17,11 +17,11 @@ const GALLERY = [
 
 export default function CommunityPage() {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-20">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-16 max-w-3xl"
+        className="mb-10 sm:mb-16 max-w-3xl"
       >
         <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.2em] text-lime">
           Community
@@ -39,14 +39,14 @@ export default function CommunityPage() {
         </p>
       </motion.div>
 
-      <div className="mb-20 grid grid-cols-2 gap-3 md:grid-cols-4">
+      <div className="mb-12 sm:mb-20 grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-4">
         {GALLERY.map((item, i) => (
           <motion.div
             key={item.user}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05 }}
-            className="group relative aspect-square overflow-hidden rounded-3xl bg-card"
+            className="group relative aspect-square overflow-hidden rounded-2xl sm:rounded-3xl bg-card"
           >
             <div
               className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
@@ -70,12 +70,12 @@ export default function CommunityPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="rounded-3xl border border-white/5 bg-card/50 p-10"
+          className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-10"
         >
           <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-lime/20 bg-lime/5">
             <MapPin className="h-5 w-5 text-lime" />
           </div>
-          <h2 className="font-display text-2xl tracking-tight">
+          <h2 className="font-display text-xl sm:text-2xl tracking-tight">
             India's <span className="text-lime">Capsule</span>
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-white/40">
@@ -87,12 +87,12 @@ export default function CommunityPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="rounded-3xl border border-white/5 bg-card/50 p-10"
+          className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-10"
         >
           <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-lime/20 bg-lime/5">
             <MessageCircle className="h-5 w-5 text-lime" />
           </div>
-          <h2 className="font-display text-2xl tracking-tight">
+          <h2 className="font-display text-xl sm:text-2xl tracking-tight">
             Join the <span className="text-lime">Movement</span>
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-white/40">
@@ -103,7 +103,7 @@ export default function CommunityPage() {
             href={waLink("Hey CAPSULE! I want to be part of the community!")}
             target="_blank"
             rel="noopener"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-lime px-6 py-3 text-[0.7rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
+            className="mt-4 sm:mt-6 inline-flex items-center gap-2 rounded-full bg-lime px-5 sm:px-6 py-2.5 sm:py-3 text-[0.65rem] sm:text-[0.7rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
           >
             <MessageCircle className="h-4 w-4" /> Join on WhatsApp
           </Link>

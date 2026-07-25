@@ -29,11 +29,11 @@ export default function ShopPage() {
   if (priceSort === "high") filtered = [...filtered].sort((a, b) => b.price - a.price);
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-20">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-12"
+        className="mb-8 sm:mb-12"
       >
         <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.2em] text-lime">
           Shop
@@ -43,7 +43,7 @@ export default function ShopPage() {
         </h1>
       </motion.div>
 
-      <div className="mb-8 flex flex-wrap items-center gap-4">
+      <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
         <div className="relative flex-1 max-w-md">
           <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />
           <input
@@ -70,14 +70,14 @@ export default function ShopPage() {
             exit={{ height: 0, opacity: 0 }}
             className="mb-8 overflow-hidden"
           >
-            <div className="flex flex-wrap items-center gap-3 rounded-3xl border border-white/5 bg-card/50 p-5">
+            <div className="flex flex-wrap items-center gap-3 rounded-3xl border border-white/5 bg-card/50 p-4 sm:p-5">
               <span className="text-xs font-semibold text-white/40">Category:</span>
               <div className="flex flex-wrap gap-2">
                 {CATEGORIES.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`rounded-full px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-wider transition-all ${
+                    className={`rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-[0.6rem] sm:text-[0.65rem] font-semibold uppercase tracking-wider transition-all ${
                       selectedCategory === cat
                         ? "bg-lime text-dark"
                         : "border border-white/10 text-white/50 hover:border-white/20"
@@ -87,7 +87,7 @@ export default function ShopPage() {
                   </button>
                 ))}
               </div>
-              <div className="ml-auto flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2 mt-2 sm:mt-0 sm:ml-auto">
                 <span className="text-xs text-white/40">Price:</span>
                 {(["none", "low", "high"] as const).map((opt) => (
                   <button
@@ -108,7 +108,7 @@ export default function ShopPage() {
         )}
       </AnimatePresence>
 
-      <motion.div layout className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <motion.div layout className="grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filtered.map((product, i) => (
           <motion.div
             key={product.id}
@@ -118,7 +118,7 @@ export default function ShopPage() {
             transition={{ delay: i * 0.05 }}
           >
             <Link href={`/product/${product.id}`} className="group block">
-              <div className="relative mb-4 overflow-hidden rounded-3xl bg-card">
+              <div className="relative mb-3 sm:mb-4 overflow-hidden rounded-2xl sm:rounded-3xl bg-card">
                 <img
                   src={product.images[0]}
                   alt={product.name}
