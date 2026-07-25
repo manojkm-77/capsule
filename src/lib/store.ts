@@ -6,7 +6,7 @@ interface CartItem {
   price: number;
   size: string;
   quantity: number;
-  image: string;
+  images: string[];
 }
 
 interface UIStore {

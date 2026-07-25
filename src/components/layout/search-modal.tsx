@@ -69,7 +69,7 @@ export function SearchModal() {
                     className="flex items-center gap-4 rounded-2xl p-3 transition-colors hover:bg-white/5"
                   >
                     <img
-                      src={p.image}
+                      src={p.images[0]}
                       alt={p.name}
                       className="h-14 w-14 shrink-0 rounded-xl object-cover"
                     />

@@ -3,17 +3,18 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag, Share2, Check, Scissors, Shield, Truck } from "lucide-react";
+import { ArrowLeft, ShoppingBag, Share2, Check, Scissors, Shield, Truck, ChevronLeft, ChevronRight } from "lucide-react";
 import { products } from "@/lib/data";
 import { formatPrice, cn } from "@/lib/utils";
 import { useStore } from "@/lib/store";
 import { toast } from "@/components/ui/toaster";
-import { use } from "react";
+import { use, useState } from "react";
 
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const product = products.find((p) => p.id === id);
   const { addToCart, cart } = useStore();
+  const [selectedImg, setSelectedImg] = useState(0);
 
   if (!product) {
     return (
@@ -29,7 +30,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const inCart = cart.find((i) => i.id === product.id)?.quantity || 0;
 
   const handleAdd = () => {
-    addToCart({ ...product, size: "One Size", quantity: 1, image: product.color });
+    addToCart({ ...product, size: "One Size", quantity: 1, images: product.images });
     toast("Added to cart");
   };
 
@@ -48,16 +49,40 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           animate={{ opacity: 1, x: 0 }}
           className="relative"
         >
-          <img
-            src={product.image}
-            alt={product.name}
-            className="aspect-[4/5] w-full rounded-3xl object-cover"
-          />
-          {product.badge && (
-            <span className="absolute left-4 top-4 rounded-full bg-lime px-4 py-2 text-[0.6rem] font-bold uppercase tracking-wider text-dark">
-              {product.badge}
-            </span>
-          )}
+          <div className="relative overflow-hidden rounded-3xl bg-card">
+            <img
+              src={product.images[selectedImg]}
+              alt={product.name}
+              className="aspect-[4/5] w-full object-cover transition-all duration-500"
+            />
+            {product.images.length > 1 && (
+              <>
+                <button onClick={() => setSelectedImg((selectedImg - 1 + product.images.length) % product.images.length)}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-dark/60 p-2 text-stitch backdrop-blur-sm hover:bg-dark/80">
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button onClick={() => setSelectedImg((selectedImg + 1) % product.images.length)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-dark/60 p-2 text-stitch backdrop-blur-sm hover:bg-dark/80">
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </>
+            )}
+            {product.badge && (
+              <span className="absolute left-4 top-4 rounded-full bg-lime px-4 py-2 text-[0.6rem] font-bold uppercase tracking-wider text-dark">
+                {product.badge}
+              </span>
+            )}
+          </div>
+          <div className="mt-3 flex gap-2">
+            {product.images.map((img, i) => (
+              <button key={i} onClick={() => setSelectedImg(i)}
+                className={`h-16 w-16 shrink-0 overflow-hidden rounded-xl border-2 transition-all ${
+                  i === selectedImg ? "border-lime" : "border-white/5 opacity-60 hover:opacity-100"
+                }`}>
+                <img src={img} alt="" className="h-full w-full object-cover" />
+              </button>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div

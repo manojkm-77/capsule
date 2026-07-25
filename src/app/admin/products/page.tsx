@@ -14,11 +14,11 @@ interface Product {
   originalPrice: number | null;
   stock: number;
   color: string;
-  image: string;
+  images: string[];
   badge: string | null;
 }
 
-const emptyForm = { name: "", category: "Fitted", price: 0, originalPrice: 0, stock: 0, color: "#0B0B0B", image: "/products/product-1.svg", badge: "" };
+const emptyForm = { name: "", category: "Fitted", price: 0, originalPrice: 0, stock: 0, color: "#0B0B0B", images: ["", "", "", "", ""], badge: "" };
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -62,7 +62,7 @@ export default function AdminProductsPage() {
 
   const openEdit = (p: Product) => {
     setEditing(p);
-    setForm({ name: p.name, category: p.category, price: p.price, originalPrice: p.originalPrice || 0, stock: p.stock, color: p.color, image: p.image || "", badge: p.badge || "" });
+    setForm({ name: p.name, category: p.category, price: p.price, originalPrice: p.originalPrice || 0, stock: p.stock, color: p.color, images: p.images?.length ? p.images : ["", "", "", "", ""], badge: p.badge || "" });
     setShowForm(true);
   };
 
@@ -98,7 +98,7 @@ export default function AdminProductsPage() {
                 className="border-b border-white/5 transition-colors hover:bg-white/[0.02]">
                 <td className="px-5 py-4">
                   <div className="flex items-center gap-3">
-                    <img src={p.image} alt={p.name} className="h-10 w-10 shrink-0 rounded-xl object-cover" />
+                    <img src={p.images?.[0] || "/products/product-1.svg"} alt={p.name} className="h-10 w-10 shrink-0 rounded-xl object-cover" />
                     <span className="font-medium">{p.name}</span>
                   </div>
                 </td>
@@ -151,9 +151,21 @@ export default function AdminProductsPage() {
                   <input placeholder="Badge (e.g. New)" value={form.badge} onChange={(e) => setForm({ ...form, badge: e.target.value })}
                     className="w-full rounded-xl border border-white/10 bg-dark px-4 py-3 text-sm text-stitch outline-none placeholder:text-white/20 focus:border-lime/30" />
                 </div>
-                <input placeholder="Image URL" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })}
-                  className="w-full rounded-xl border border-white/10 bg-dark px-4 py-3 text-sm text-stitch outline-none placeholder:text-white/20 focus:border-lime/30" />
-                {form.image && <img src={form.image} alt="preview" className="h-24 w-24 rounded-xl object-cover border border-white/5" />}
+                <div>
+                  <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-white/30">Images (up to 5)</label>
+                  <div className="space-y-2">
+                    {form.images.map((url, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <input placeholder={`Image ${i + 1} URL`} value={url} onChange={(e) => {
+                          const newImages = [...form.images];
+                          newImages[i] = e.target.value;
+                          setForm({ ...form, images: newImages });
+                        }} className="flex-1 rounded-xl border border-white/10 bg-dark px-4 py-3 text-sm text-stitch outline-none placeholder:text-white/20 focus:border-lime/30" />
+                        {url && <img src={url} alt="" className="h-10 w-10 shrink-0 rounded-lg object-cover border border-white/5" />}
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 <div>
                   <label className="text-xs text-white/30">Color: {form.color}</label>
                   <input type="color" value={form.color} onChange={(e) => setForm({ ...form, color: e.target.value })}

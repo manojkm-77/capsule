@@ -59,7 +59,7 @@ export function FeaturedCollection() {
               <Link href={`/product/${product.id}`} className="group block">
                 <div className="relative mb-4 overflow-hidden rounded-3xl bg-card">
                   <img
-                    src={product.image}
+                    src={product.images[0]}
                     alt={product.name}
                     className="aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />

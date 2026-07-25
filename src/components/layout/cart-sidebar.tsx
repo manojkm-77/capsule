@@ -51,7 +51,7 @@ export function CartSidebar() {
                       className="flex gap-4 rounded-2xl border border-white/5 bg-card/50 p-4"
                     >
                       <img
-                        src={item.image}
+                        src={item.images[0]}
                         alt={item.name}
                         className="h-20 w-20 shrink-0 rounded-xl object-cover"
                       />

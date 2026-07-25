@@ -35,7 +35,7 @@ export default function AdminInventoryPage() {
             className="flex items-center justify-between gap-4 rounded-2xl border border-white/5 bg-card/50 p-5"
           >
             <div className="flex items-center gap-4">
-              <img src={p.image} alt={p.name} className="h-10 w-10 rounded-xl object-cover" />
+              <img src={p.images[0]} alt={p.name} className="h-10 w-10 rounded-xl object-cover" />
               <div>
                 <p className="text-sm font-medium">{p.name}</p>
                 <p className="font-mono text-[0.55rem] text-white/30">SKU: CAP-{String(p.id).padStart(3, "0")}</p>
