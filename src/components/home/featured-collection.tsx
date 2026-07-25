@@ -58,11 +58,10 @@ export function FeaturedCollection() {
             >
               <Link href={`/product/${product.id}`} className="group block">
                 <div className="relative mb-4 overflow-hidden rounded-3xl bg-card">
-                  <div
-                    className="aspect-[3/4] w-full transition-transform duration-700 group-hover:scale-105"
-                    style={{
-                      background: `linear-gradient(135deg, ${product.color}, ${product.color}dd, #0B0B0B)`,
-                    }}
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {product.badge && (
                     <span className="absolute left-3 top-3 rounded-full bg-lime px-3 py-1 text-[0.55rem] font-bold uppercase tracking-wider text-dark">

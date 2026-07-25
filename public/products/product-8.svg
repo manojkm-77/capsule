@@ -1,0 +1,11 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="1000" fill="#0B0B0B"/>
+  <ellipse cx="400" cy="420" rx="240" ry="160" fill="#181818"/>
+  <ellipse cx="400" cy="420" rx="200" ry="130" fill="#2a2a2a"/>
+  <path d="M220 420 Q220 310 400 290 Q580 310 580 420" stroke="#D7FF1F" stroke-width="3" fill="none"/>
+  <rect x="320" y="510" width="160" height="30" rx="15" fill="#D7FF1F"/>
+  <text x="400" y="700" text-anchor="middle" fill="#8A8A8A" font-family="monospace" font-size="24" font-weight="bold" letter-spacing="4">BONE</text>
+  <text x="400" y="740" text-anchor="middle" fill="#8A8A8A" font-family="monospace" font-size="20" letter-spacing="6">WHITE</text>
+  <text x="400" y="780" text-anchor="middle" fill="#D7FF1F" font-family="monospace" font-size="16" letter-spacing="8">DAD HAT</text>
+  <rect x="250" y="850" width="300" height="1" fill="#ffffff" opacity="0.08"/>
+</svg>

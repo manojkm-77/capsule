@@ -1,0 +1,11 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="1000" fill="#0B0B0B"/>
+  <ellipse cx="400" cy="420" rx="260" ry="180" fill="#0d0d0d"/>
+  <ellipse cx="400" cy="420" rx="220" ry="150" fill="#1c1c1c"/>
+  <path d="M200 420 Q200 300 400 280 Q600 300 600 420" stroke="#D7FF1F" stroke-width="3" fill="none" stroke-dasharray="8 4"/>
+  <rect x="300" y="520" width="200" height="30" rx="15" fill="#D7FF1F"/>
+  <text x="400" y="700" text-anchor="middle" fill="#8A8A8A" font-family="monospace" font-size="24" font-weight="bold" letter-spacing="4">SPLIT</text>
+  <text x="400" y="740" text-anchor="middle" fill="#8A8A8A" font-family="monospace" font-size="20" letter-spacing="6">BLACK</text>
+  <text x="400" y="780" text-anchor="middle" fill="#D7FF1F" font-family="monospace" font-size="16" letter-spacing="8">LAST ONE</text>
+  <rect x="250" y="850" width="300" height="1" fill="#ffffff" opacity="0.08"/>
+</svg>

@@ -50,9 +50,10 @@ export function CartSidebar() {
                       key={`${item.id}-${item.size}`}
                       className="flex gap-4 rounded-2xl border border-white/5 bg-card/50 p-4"
                     >
-                      <div
-                        className="h-20 w-20 shrink-0 rounded-xl"
-                        style={{ background: `linear-gradient(135deg, ${item.image}, #0B0B0B)` }}
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="h-20 w-20 shrink-0 rounded-xl object-cover"
                       />
                       <div className="flex-1">
                         <h3 className="text-sm font-semibold">{item.name}</h3>

@@ -48,11 +48,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           animate={{ opacity: 1, x: 0 }}
           className="relative"
         >
-          <div
-            className="aspect-[4/5] w-full rounded-3xl"
-            style={{
-              background: `linear-gradient(135deg, ${product.color}, ${product.color}dd, #0B0B0B)`,
-            }}
+          <img
+            src={product.image}
+            alt={product.name}
+            className="aspect-[4/5] w-full rounded-3xl object-cover"
           />
           {product.badge && (
             <span className="absolute left-4 top-4 rounded-full bg-lime px-4 py-2 text-[0.6rem] font-bold uppercase tracking-wider text-dark">
