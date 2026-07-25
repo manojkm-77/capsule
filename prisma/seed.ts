@@ -9,14 +9,14 @@ async function main() {
   console.log("Seeding database...");
 
   await prisma.product.createMany({ data: [
-    { id: "1", name: "Court Black Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 3, color: "#0B0B0B", badge: "Low Stock" },
-    { id: "2", name: "Lime Snapback", category: "Snapback", price: 1699, originalPrice: 2699, stock: 24, color: "#1a1a1a", badge: "Best Seller" },
-    { id: "3", name: "Shadow Dad Hat", category: "Dad Hat", price: 1299, originalPrice: 1999, stock: 8, color: "#161616", badge: "New" },
-    { id: "4", name: "Onyx Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 2, color: "#0D0D0D", badge: "Limited" },
-    { id: "5", name: "Stealth Snap", category: "Snapback", price: 1599, originalPrice: 2599, stock: 12, color: "#141414", badge: "Popular" },
-    { id: "6", name: "Split Black Fitted", category: "Limited", price: 1899, originalPrice: 2999, stock: 1, color: "#0B0B0B", badge: "Last One" },
-    { id: "7", name: "Nocturnal Camo Snap", category: "Snapback", price: 1799, originalPrice: 2799, stock: 6, color: "#111111", badge: "Exclusive" },
-    { id: "8", name: "Bone White Dad Hat", category: "Dad Hat", price: 1399, originalPrice: 2199, stock: 15, color: "#1c1c1c", badge: "New" },
+    { id: "1", name: "Court Black Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 3, color: "#0B0B0B", images: ["/products/product-1.jpg", "/products/product-1.jpg", "/products/product-4.svg", "/products/product-1.jpg", "/products/product-4.svg"], badge: "Low Stock" },
+    { id: "2", name: "Lime Snapback", category: "Snapback", price: 1699, originalPrice: 2699, stock: 24, color: "#1a1a1a", images: ["/products/product-2.svg", "/products/product-2.svg", "/products/product-5.svg", "/products/product-2.svg", "/products/product-5.svg"], badge: "Best Seller" },
+    { id: "3", name: "Shadow Dad Hat", category: "Dad Hat", price: 1299, originalPrice: 1999, stock: 8, color: "#161616", images: ["/products/product-3.svg", "/products/product-3.svg", "/products/product-6.svg", "/products/product-3.svg", "/products/product-6.svg"], badge: "New" },
+    { id: "4", name: "Onyx Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 2, color: "#0D0D0D", images: ["/products/product-4.svg", "/products/product-4.svg", "/products/product-7.svg", "/products/product-4.svg", "/products/product-7.svg"], badge: "Limited" },
+    { id: "5", name: "Stealth Snap", category: "Snapback", price: 1599, originalPrice: 2599, stock: 12, color: "#141414", images: ["/products/product-5.svg", "/products/product-5.svg", "/products/product-1.svg", "/products/product-5.svg", "/products/product-1.svg"], badge: "Popular" },
+    { id: "6", name: "Split Black Fitted", category: "Limited", price: 1899, originalPrice: 2999, stock: 1, color: "#0B0B0B", images: ["/products/product-6.svg", "/products/product-6.svg", "/products/product-3.svg", "/products/product-6.svg", "/products/product-3.svg"], badge: "Last One" },
+    { id: "7", name: "Nocturnal Camo Snap", category: "Snapback", price: 1799, originalPrice: 2799, stock: 6, color: "#111111", images: ["/products/product-7.svg", "/products/product-7.svg", "/products/product-2.svg", "/products/product-7.svg", "/products/product-2.svg"], badge: "Exclusive" },
+    { id: "8", name: "Bone White Dad Hat", category: "Dad Hat", price: 1399, originalPrice: 2199, stock: 15, color: "#1c1c1c", images: ["/products/product-8.svg", "/products/product-8.svg", "/products/product-5.svg", "/products/product-8.svg", "/products/product-5.svg"], badge: "New" },
   ]});
 
   await prisma.order.createMany({ data: [
