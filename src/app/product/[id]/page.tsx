@@ -97,8 +97,8 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           { label: product.name },
         ]} />
 
-        <div className="mt-8 grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+        <div className="mt-8 grid gap-12 lg:grid-cols-[55fr_45fr]">
+          <div className="min-w-0">
             <ImageGallery
               images={product.images}
               alt={product.name}
@@ -106,7 +106,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             />
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="min-w-0">
             <div className="lg:sticky lg:top-[100px]">
               <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                 {product.category}
@@ -311,7 +311,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         initial={{ y: 100 }}
         animate={{ y: showSticky ? 0 : 100 }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-secondary px-4 py-3 lg:bottom-auto lg:top-[84px] lg:border-t-0 lg:border-b lg:bg-secondary/95 lg:backdrop-blur-xl"
+        className="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-white px-4 py-3 lg:bottom-auto lg:top-[80px] lg:border-t-0 lg:border-b lg:bg-white/95"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
           <div className="flex items-center gap-3">

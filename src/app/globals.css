@@ -2,12 +2,12 @@
 
 @theme inline {
   --color-primary: #111111;
-  --color-secondary: #FFFFFF;
-  --color-background: #FAFAFA;
+  --color-secondary: #F8F8F8;
+  --color-background: #FFFFFF;
   --color-card: #FFFFFF;
   --color-border: #ECECEC;
   --color-muted: #6B7280;
-  --color-accent: #111111;
+  --color-white: #FFFFFF;
   --color-success: #16A34A;
   --color-sale: #DC2626;
   --font-sans: var(--font-inter), "SF Pro Display", system-ui, sans-serif;
@@ -29,7 +29,7 @@ html {
 }
 
 body {
-  background: #FAFAFA;
+  background: #FFFFFF;
   color: #111111;
   font-family: var(--font-inter), "SF Pro Display", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -76,25 +76,13 @@ body {
   margin: 0 auto;
 }
 
-.card-shadow {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.card-shadow-hover {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.card-shadow-hover:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  transform: translateY(-6px);
-}
-
 .lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .lift:hover {
   transform: translateY(-6px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -110,15 +98,23 @@ body {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  [style*="opacity: 0"] {
-    opacity: 1 !important;
-    transform: none !important;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
   .lift:hover {
     transform: none;
-  }
-  .card-shadow-hover:hover {
-    transform: none;
+    box-shadow: none;
   }
 }

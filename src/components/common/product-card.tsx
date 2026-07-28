@@ -80,7 +80,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           <button
             onClick={handleWishlist}
             className={cn(
-              "absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-secondary/80 backdrop-blur-sm transition-all",
+              "absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 transition-all",
               isWishlisted ? "text-sale" : "text-muted hover:text-primary"
             )}
             aria-label="Add to wishlist"

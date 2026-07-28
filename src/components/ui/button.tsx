@@ -18,9 +18,9 @@ interface ButtonProps {
 }
 
 const variants = {
-  primary: "bg-primary text-secondary hover:bg-primary/90",
-  secondary: "bg-secondary text-primary border border-border hover:bg-[#F5F5F5]",
-  ghost: "bg-transparent text-primary hover:bg-[#F0F0F0]",
+  primary: "bg-primary text-white hover:bg-primary/90",
+  secondary: "bg-white text-primary border border-border hover:bg-secondary",
+  ghost: "bg-transparent text-primary hover:bg-secondary",
 };
 
 const sizes = {
