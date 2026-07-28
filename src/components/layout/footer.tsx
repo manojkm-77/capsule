@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, Twitter, Youtube, ArrowRight } from "lucide-react";
+import { Camera, AtSign, Video, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -49,9 +49,9 @@ export function Footer() {
             </p>
             <div className="mt-5 flex gap-2">
               {[
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Twitter, href: "#", label: "Twitter" },
-                { icon: Youtube, href: "#", label: "YouTube" },
+                { icon: Camera, href: "#", label: "Instagram" },
+                { icon: AtSign, href: "#", label: "Twitter" },
+                { icon: Video, href: "#", label: "YouTube" },
               ].map((social) => (
                 <a
                   key={social.label}

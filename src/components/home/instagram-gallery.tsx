@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram } from "lucide-react";
+import { Camera } from "lucide-react";
 
 const images = [
   "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=400&auto=format&fit=crop",
@@ -17,7 +17,7 @@ export function InstagramGallery() {
     <section className="py-12 lg:py-16 bg-white">
       <div className="container-caps">
         <div className="text-center mb-8">
-          <Instagram className="mx-auto h-5 w-5 text-muted mb-2" strokeWidth={1.8} />
+          <Camera className="mx-auto h-5 w-5 text-muted mb-2" strokeWidth={1.8} />
           <h2 className="text-xl font-bold tracking-tight">Follow Us</h2>
           <p className="mt-1 text-[13px] text-muted">@capsule.caps &middot; Tag us for a feature</p>
         </div>
