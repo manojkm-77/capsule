@@ -9,10 +9,6 @@ export function formatPrice(price: number) {
   return `₹${price.toLocaleString("en-IN")}`;
 }
 
-export function waLink(text: string) {
-  return `https://wa.me/918088145310?text=${encodeURIComponent(text)}`;
-}
-
 export function formatDate(date: string | Date) {
   return new Date(date).toLocaleDateString("en-IN", {
     day: "numeric",
@@ -22,14 +18,14 @@ export function formatDate(date: string | Date) {
 }
 
 export const products = [
-  { id: "1", name: "Court Black Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 3, color: "#0B0B0B", images: ["/products/product-1.jpg", "/products/product-1.jpg", "/products/product-4.svg", "/products/product-1.jpg", "/products/product-4.svg"], badge: "Low Stock" },
-  { id: "2", name: "Lime Snapback", category: "Snapback", price: 1699, originalPrice: 2699, stock: 24, color: "#1a1a1a", images: ["/products/product-2.svg", "/products/product-2.svg", "/products/product-5.svg", "/products/product-2.svg", "/products/product-5.svg"], badge: "Best Seller" },
-  { id: "3", name: "Shadow Dad Hat", category: "Dad Hat", price: 1299, originalPrice: 1999, stock: 8, color: "#161616", images: ["/products/product-3.svg", "/products/product-3.svg", "/products/product-6.svg", "/products/product-3.svg", "/products/product-6.svg"], badge: "New" },
-  { id: "4", name: "Onyx Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 2, color: "#0D0D0D", images: ["/products/product-4.svg", "/products/product-4.svg", "/products/product-7.svg", "/products/product-4.svg", "/products/product-7.svg"], badge: "Limited" },
-  { id: "5", name: "Stealth Snap", category: "Snapback", price: 1599, originalPrice: 2599, stock: 12, color: "#141414", images: ["/products/product-5.svg", "/products/product-5.svg", "/products/product-1.svg", "/products/product-5.svg", "/products/product-1.svg"], badge: "Popular" },
-  { id: "6", name: "Split Black Fitted", category: "Limited", price: 1899, originalPrice: 2999, stock: 1, color: "#0B0B0B", images: ["/products/product-6.svg", "/products/product-6.svg", "/products/product-3.svg", "/products/product-6.svg", "/products/product-3.svg"], badge: "Last One" },
-  { id: "7", name: "Nocturnal Camo Snap", category: "Snapback", price: 1799, originalPrice: 2799, stock: 6, color: "#111111", images: ["/products/product-7.svg", "/products/product-7.svg", "/products/product-2.svg", "/products/product-7.svg", "/products/product-2.svg"], badge: "Exclusive" },
-  { id: "8", name: "Bone White Dad Hat", category: "Dad Hat", price: 1399, originalPrice: 2199, stock: 15, color: "#1c1c1c", images: ["/products/product-8.svg", "/products/product-8.svg", "/products/product-5.svg", "/products/product-8.svg", "/products/product-5.svg"], badge: "New" },
+  { id: "1", name: "Court Black Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 3, color: "#0B0B0B", images: ["/products/product-1.jpg", "/products/product-1.jpg", "/products/product-4.svg", "/products/product-1.jpg", "/products/product-4.svg"], badge: "Low Stock", brand: "CAPSULE", rating: 5, reviewCount: 42, colors: ["#0B0B0B", "#1a1a1a"] },
+  { id: "2", name: "Lime Snapback", category: "Snapback", price: 1699, originalPrice: 2699, stock: 24, color: "#1a1a1a", images: ["/products/product-2.svg", "/products/product-2.svg", "/products/product-5.svg", "/products/product-2.svg", "/products/product-5.svg"], badge: "Best Seller", brand: "CAPSULE", rating: 4, reviewCount: 28, colors: ["#1a1a1a", "#CCFF00"] },
+  { id: "3", name: "Shadow Dad Hat", category: "Dad Hat", price: 1299, originalPrice: 1999, stock: 8, color: "#161616", images: ["/products/product-3.svg", "/products/product-3.svg", "/products/product-6.svg", "/products/product-3.svg", "/products/product-6.svg"], badge: "New", brand: "CAPSULE", rating: 5, reviewCount: 16, colors: ["#161616", "#2a2a2a"] },
+  { id: "4", name: "Onyx Fitted", category: "Fitted", price: 1499, originalPrice: 2499, stock: 2, color: "#0D0D0D", images: ["/products/product-4.svg", "/products/product-4.svg", "/products/product-7.svg", "/products/product-4.svg", "/products/product-7.svg"], badge: "Limited", brand: "CAPSULE", rating: 5, reviewCount: 34, colors: ["#0D0D0D"] },
+  { id: "5", name: "Stealth Snap", category: "Snapback", price: 1599, originalPrice: 2599, stock: 12, color: "#141414", images: ["/products/product-5.svg", "/products/product-5.svg", "/products/product-1.svg", "/products/product-5.svg", "/products/product-1.svg"], badge: "Popular", brand: "CAPSULE", rating: 4, reviewCount: 19, colors: ["#141414", "#0B0B0B"] },
+  { id: "6", name: "Split Black Fitted", category: "Limited", price: 1899, originalPrice: 2999, stock: 1, color: "#0B0B0B", images: ["/products/product-6.svg", "/products/product-6.svg", "/products/product-3.svg", "/products/product-6.svg", "/products/product-3.svg"], badge: "Last One", brand: "CAPSULE", rating: 5, reviewCount: 8, colors: ["#0B0B0B"] },
+  { id: "7", name: "Nocturnal Camo Snap", category: "Snapback", price: 1799, originalPrice: 2799, stock: 6, color: "#111111", images: ["/products/product-7.svg", "/products/product-7.svg", "/products/product-2.svg", "/products/product-7.svg", "/products/product-2.svg"], badge: "Exclusive", brand: "CAPSULE", rating: 4, reviewCount: 12, colors: ["#111111"] },
+  { id: "8", name: "Bone White Dad Hat", category: "Dad Hat", price: 1399, originalPrice: 2199, stock: 15, color: "#1c1c1c", images: ["/products/product-8.svg", "/products/product-8.svg", "/products/product-5.svg", "/products/product-8.svg", "/products/product-5.svg"], badge: "New", brand: "CAPSULE", rating: 5, reviewCount: 21, colors: ["#1c1c1c", "#FAFAF7"] },
 ];
 
 export const orders = [
@@ -59,10 +55,10 @@ export const testimonials = [
 ];
 
 export const faqs = [
-  { id: "1", question: "How do I order?", answer: "Browse our collection and DM us on WhatsApp with the product you want. We'll confirm size, availability, and payment details." },
-  { id: "2", question: "What payment methods do you accept?", answer: "UPI, Google Pay, PhonePe, and Cash on Delivery in most cities. No card details needed." },
-  { id: "3", question: "How long does shipping take?", answer: "2-4 days in Bengaluru, 4-7 days pan-India. You'll get tracking over WhatsApp." },
-  { id: "4", question: "Can I return or exchange?", answer: "Yes — DM us within 3 days of delivery and we'll sort an exchange subject to stock availability." },
+  { id: "1", question: "How do I place an order?", answer: "Browse our collection, select your preferred items, add them to cart, and proceed to checkout. You can pay via UPI, credit/debit card, or cash on delivery." },
+  { id: "2", question: "What payment methods do you accept?", answer: "We accept UPI (Google Pay, PhonePe, Paytm), credit/debit cards, and Cash on Delivery in most areas." },
+  { id: "3", question: "How long does shipping take?", answer: "Orders ship within 24 hours. Delivery takes 2-4 days in Bengaluru, 4-7 days for the rest of India." },
+  { id: "4", question: "Can I return or exchange?", answer: "Yes — contact us within 7 days of delivery for a return or exchange. Items must be unworn with tags attached." },
   { id: "5", question: "Do you ship internationally?", answer: "Currently shipping pan-India only. International shipping coming soon." },
-  { id: "6", question: "How do I know my size?", answer: "Most fits are adjustable one-size. Fitted styles come in set sizes — DM us and we'll confirm fit before you pay." },
+  { id: "6", question: "How do I find my size?", answer: "Most styles are adjustable one-size. Fitted caps come in specific sizes — refer to our size guide or contact us for help." },
 ];

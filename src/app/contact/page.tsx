@@ -1,128 +1,104 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Mail, MapPin, Send, Check } from "lucide-react";
-import Link from "next/link";
+import { MessageCircle, Mail, MapPin, Send, ArrowRight } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
+
+const CONTACT_METHODS = [
+  {
+    icon: MessageCircle,
+    title: "WhatsApp",
+    desc: "Fastest way to reach us. DM for orders.",
+    action: "Chat Now",
+    href: "https://wa.me/918088145310",
+  },
+  {
+    icon: Mail,
+    title: "Email",
+    desc: "For partnerships & bulk inquiries.",
+    action: "hello@capsule.caps",
+    href: "mailto:hello@capsule.caps",
+  },
+  {
+    icon: MapPin,
+    title: "Location",
+    desc: "Based in Bengaluru, India.",
+    action: "Get Directions",
+    href: "#",
+  },
+];
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-10 sm:mb-16 max-w-3xl"
-      >
-        <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.2em] text-lime">
-          Contact
-        </span>
-        <h1 className="mt-4 font-display text-[clamp(2.5rem,8vw,6rem)] leading-[0.85] tracking-tight">
-          Get in
-          <br />
-          <span className="text-lime">Touch</span>
-        </h1>
-        <p className="mt-8 max-w-xl text-base leading-relaxed text-white/40">
-          DM us on WhatsApp for orders, inquiries, or just to talk caps.
-        </p>
-      </motion.div>
+    <div className="container-caps py-12">
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="mt-8 grid gap-12 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="space-y-4"
         >
-          {[
-            {
-              icon: MessageCircle,
-              title: "WhatsApp",
-              desc: "Fastest way to reach us. DM for orders.",
-              action: "Chat Now",
-              href: waLink("Hey CAPSULE! I have a question."),
-            },
-            {
-              icon: Mail,
-              title: "Email",
-              desc: "For partnerships & bulk inquiries.",
-              action: "hello@capsule.caps",
-              href: "mailto:hello@capsule.caps",
-            },
-            {
-              icon: MapPin,
-              title: "Location",
-              desc: "Based in Bengaluru, India.",
-              action: "View Map",
-              href: "#",
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="flex items-center gap-3 sm:gap-5 rounded-2xl sm:rounded-3xl border border-white/5 bg-card/50 p-4 sm:p-6 transition-all hover:border-white/10"
-            >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-lime/20 bg-lime/5">
-                <item.icon className="h-5 w-5 text-lime" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-sm font-semibold">{item.title}</h3>
-                <p className="mt-0.5 text-xs text-white/40">{item.desc}</p>
-              </div>
-              <Link
-                href={item.href}
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                className="flex items-center gap-1 text-[0.65rem] font-semibold text-lime"
+          <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">Contact</span>
+          <h1 className="mt-3 text-[clamp(2rem,5vw,3.25rem)] font-bold leading-[1.1] tracking-tight">
+            Let&apos;s Talk
+            <br />
+            <span className="text-muted">Premium Headwear</span>
+          </h1>
+          <p className="mt-6 text-[15px] leading-relaxed text-muted">
+            Whether you have a question about sizing, want to check stock, or just want to say hi — we&apos;re here to help.
+          </p>
+
+          <div className="mt-10 space-y-4">
+            {CONTACT_METHODS.map((method) => (
+              <a
+                key={method.title}
+                href={method.href}
+                target={method.href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener"
+                className="flex items-center gap-5 rounded-[20px] border border-border p-5 transition-all hover:border-primary hover:bg-[#F5F5F5] group"
               >
-                {item.action}
-                <Send className="h-3 w-3" />
-              </Link>
-            </div>
-          ))}
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-[#F5F5F5]">
+                  <method.icon className="h-5 w-5 text-muted" strokeWidth={1.8} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-[15px] font-medium">{method.title}</h3>
+                  <p className="text-[13px] text-muted">{method.desc}</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-muted group-hover:text-primary group-hover:translate-x-0.5 transition-all" strokeWidth={1.8} />
+              </a>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
-          className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-8"
+          className="rounded-[28px] border border-border bg-secondary p-8"
         >
-          <h2 className="font-display text-2xl tracking-tight">
-            Send a <span className="text-lime">Message</span>
-          </h2>
-          <p className="mt-2 text-sm text-white/40">
-            We reply within a few hours, usually faster.
-          </p>
-          <form className="mt-8 space-y-4">
-            <div>
-              <input
-                placeholder="Your Name"
-                className="w-full rounded-2xl border border-white/10 bg-dark px-5 py-4 text-sm text-stitch outline-none placeholder:text-white/20 focus:border-lime/30"
-              />
+          <h2 className="text-xl font-semibold">Send a Message</h2>
+          <p className="mt-2 text-[14px] text-muted">We reply within 24 hours, usually faster.</p>
+          <form className="mt-8 space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Input label="Name" placeholder="Your name" />
+              <Input label="Email" type="email" placeholder="your@email.com" />
             </div>
-            <div>
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full rounded-2xl border border-white/10 bg-dark px-5 py-4 text-sm text-stitch outline-none placeholder:text-white/20 focus:border-lime/30"
-              />
-            </div>
-            <div>
+            <Input label="Subject" placeholder="How can we help?" />
+            <div className="space-y-1.5">
+              <label className="block text-[13px] font-medium text-primary/70">Message</label>
               <textarea
-                rows={4}
-                placeholder="Your Message"
-                className="w-full resize-none rounded-2xl border border-white/10 bg-dark px-5 py-4 text-sm text-stitch outline-none placeholder:text-white/20 focus:border-lime/30"
+                rows={5}
+                placeholder="Write your message..."
+                className="w-full resize-none rounded-[16px] border border-border bg-secondary px-4 py-3 text-[15px] text-primary outline-none placeholder:text-muted/50 focus:border-primary transition-all"
               />
             </div>
-            <button
-              type="submit"
-              onClick={(e) => e.preventDefault()}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-lime py-4 text-[0.75rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
-            >
-              <Send className="h-4 w-4" /> Send Message
-            </button>
+            <Button className="w-full">
+              <Send className="h-4 w-4" strokeWidth={1.8} /> Send Message
+            </Button>
           </form>
         </motion.div>
       </div>
     </div>
   );
-}
-
-function waLink(text: string) {
-  return `https://wa.me/918088145310?text=${encodeURIComponent(text)}`;
 }

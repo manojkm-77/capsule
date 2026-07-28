@@ -1,57 +1,68 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { Instagram, Twitter, Youtube, ArrowRight } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+
+const footerLinks = {
+  Shop: [
+    { href: "/shop", label: "All Products" },
+    { href: "/collections/fitted", label: "Fitted Caps" },
+    { href: "/collections/snapback", label: "Snapbacks" },
+    { href: "/collections/dad-hat", label: "Dad Hats" },
+    { href: "/new-arrivals", label: "New Arrivals" },
+    { href: "/shop?sale=true", label: "Sale" },
+  ],
+  Company: [
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
+    { href: "/community", label: "Community" },
+  ],
+  Support: [
+    { href: "/faq", label: "FAQ" },
+    { href: "/contact", label: "Shipping & Returns" },
+    { href: "/contact", label: "Size Guide" },
+    { href: "/privacy", label: "Privacy Policy" },
+    { href: "/terms", label: "Terms of Service" },
+  ],
+};
 
 export function Footer() {
-  const links = {
-    Shop: [
-      { href: "/shop", label: "All Products" },
-      { href: "/shop?category=fitted", label: "Fitted" },
-      { href: "/shop?category=snapback", label: "Snapbacks" },
-      { href: "/shop?category=dad-hat", label: "Dad Hats" },
-    ],
-    Company: [
-      { href: "/about", label: "About" },
-      { href: "/community", label: "Community" },
-      { href: "/contact", label: "Contact" },
-    ],
-    Support: [
-      { href: "/#faq", label: "FAQ" },
-      { href: "/contact", label: "Shipping" },
-      { href: "/contact", label: "Returns" },
-    ],
-    Social: [
-      { href: "#", label: "Instagram" },
-      { href: "#", label: "Twitter" },
-      { href: "#", label: "YouTube" },
-    ],
-  };
-
   return (
-    <footer className="border-t border-white/5 bg-dark/50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
-        <div className="grid gap-8 sm:gap-12 grid-cols-2 md:grid-cols-2 lg:grid-cols-5">
-          <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="font-display text-2xl tracking-wider">
-              CAPSULE<span className="text-lime">.</span>
+    <footer className="border-t border-border bg-secondary">
+      <div className="container-caps py-16 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-5">
+          <div className="lg:col-span-2">
+            <Link href="/" className="text-xl font-bold tracking-tight text-primary">
+              CAPS<span className="text-primary/60">ULE</span>
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/40">
-              Premium caps for the culture. Stitched not printed. Based in Bengaluru, India.
+            <p className="mt-4 max-w-sm text-[14px] leading-relaxed text-muted">
+              Premium headwear crafted for those who value quality, fit, and design. Every piece is made with care and attention to detail.
             </p>
             <div className="mt-6 flex gap-3">
-              <a
-                href={waLink("Hey CAPSULE!")}
-                target="_blank"
-                rel="noopener"
-                className="flex items-center gap-2 rounded-full bg-lime px-5 py-3 text-[0.7rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
-              >
-                Chat on WhatsApp
-              </a>
+              {[
+                { icon: Instagram, href: "#", label: "Instagram" },
+                { icon: Twitter, href: "#", label: "Twitter" },
+                { icon: Youtube, href: "#", label: "YouTube" },
+              ].map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="flex h-10 w-10 items-center justify-center rounded-[14px] border border-border text-muted hover:text-primary hover:border-primary transition-all"
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-4 w-4" strokeWidth={1.8} />
+                </a>
+              ))}
             </div>
           </div>
-          {Object.entries(links).map(([title, items]) => (
+          {Object.entries(footerLinks).map(([title, items]) => (
             <div key={title}>
-              <h4 className="mb-4 font-mono text-[0.6rem] font-bold uppercase tracking-[0.15em] text-white/30">
+              <h4 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
                 {title}
               </h4>
               <ul className="space-y-3">
@@ -59,7 +70,7 @@ export function Footer() {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-sm text-white/50 transition-colors hover:text-stitch"
+                      className="text-[14px] text-muted transition-colors hover:text-primary"
                     >
                       {item.label}
                     </Link>
@@ -69,17 +80,36 @@ export function Footer() {
             </div>
           ))}
         </div>
+
+        <div className="mt-12 border-t border-border pt-12">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div>
+              <h4 className="text-[15px] font-semibold">Stay in the loop</h4>
+              <p className="mt-1 text-[13px] text-muted">
+                Subscribe for exclusive drops, early access, and 10% off your first order.
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <div className="flex-1">
+                <Input placeholder="Enter your email" type="email" />
+              </div>
+              <Button>
+                Subscribe
+                <ArrowRight className="h-4 w-4" strokeWidth={1.8} />
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="border-t border-white/5 px-4 sm:px-6 py-6">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-[0.7rem] text-white/30 md:flex-row">
-          <p>© 2026 CAPSULE. All rights reserved.</p>
-          <p>Bengaluru, India — Fitted, not basic.</p>
+      <div className="border-t border-border">
+        <div className="container-caps flex flex-col items-center justify-between gap-4 py-6 text-[12px] text-muted sm:flex-row">
+          <p>&copy; 2026 CAPSULE. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-primary transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-primary transition-colors">Terms</Link>
+          </div>
         </div>
       </div>
     </footer>
   );
-}
-
-function waLink(text: string) {
-  return `https://wa.me/918088145310?text=${encodeURIComponent(text)}`;
 }

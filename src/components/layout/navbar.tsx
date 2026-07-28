@@ -3,22 +3,31 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
+import { Search, ShoppingBag, Heart, User, Menu, X, ChevronDown } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { href: "/shop", label: "Shop" },
-  { href: "/#drops", label: "Drops" },
-  { href: "/#collections", label: "Collections" },
-  { href: "/community", label: "Community" },
+  {
+    label: "Collections",
+    children: [
+      { href: "/collections/fitted", label: "Fitted Caps" },
+      { href: "/collections/snapback", label: "Snapbacks" },
+      { href: "/collections/dad-hat", label: "Dad Hats" },
+      { href: "/collections/limited", label: "Limited Edition" },
+    ],
+  },
+  { href: "/new-arrivals", label: "New Arrivals" },
   { href: "/about", label: "About" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
+  { href: "/shop?sale=true", label: "Sale" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [megaOpen, setMegaOpen] = useState<string | null>(null);
   const { cart, setCartOpen, setSearchOpen } = useStore();
 
   useEffect(() => {
@@ -32,72 +41,109 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 transition-all duration-500",
+        "sticky top-0 z-40 h-[84px] transition-all duration-300",
         scrolled
-          ? "bg-dark/90 backdrop-blur-2xl border-b border-white/5"
+          ? "bg-secondary/80 backdrop-blur-xl border-b border-border"
           : "bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
+      <div className="container-caps flex h-full items-center justify-between">
         <Link href="/" className="relative z-10">
-          <span className="font-display text-2xl tracking-wider">
-            CAPSULE<span className="text-lime">.</span>
+          <span className="text-xl font-bold tracking-tight text-primary">
+            CAPS<span className="text-primary/60">ULE</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-white/60 transition-colors hover:text-stitch"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-1 lg:flex">
+          {NAV_LINKS.map((link) => {
+            if ("children" in link) {
+              return (
+                <div
+                  key={link.label}
+                  className="relative"
+                  onMouseEnter={() => setMegaOpen(link.label)}
+                  onMouseLeave={() => setMegaOpen(null)}
+                >
+                  <button className="flex items-center gap-1 rounded-[14px] px-4 py-2 text-[13px] font-medium text-muted transition-colors hover:text-primary hover:bg-[#F5F5F5]">
+                    {link.label}
+                    <ChevronDown className="h-3 w-3" />
+                  </button>
+                  <AnimatePresence>
+                    {megaOpen === link.label && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute left-0 top-full mt-2 w-56 rounded-[20px] bg-secondary border border-border shadow-lg p-2"
+                      >
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block rounded-[14px] px-4 py-2.5 text-[13px] text-muted hover:text-primary hover:bg-[#F5F5F5] transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            }
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-[14px] px-4 py-2 text-[13px] font-medium text-muted transition-colors hover:text-primary hover:bg-[#F5F5F5]"
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1">
           <button
             onClick={() => setSearchOpen(true)}
-            className="rounded-full p-2 text-white/50 transition-colors hover:text-stitch"
+            className="rounded-[14px] p-2.5 text-muted hover:text-primary hover:bg-[#F5F5F5] transition-all"
             aria-label="Search"
           >
-            <Search className="h-4 w-4" />
+            <Search className="h-[18px] w-[18px]" strokeWidth={1.8} />
           </button>
           <Link
-            href="/contact"
-            className="hidden rounded-full p-2 text-white/50 transition-colors hover:text-stitch lg:block"
-            aria-label="Contact"
+            href="/wishlist"
+            className="hidden rounded-[14px] p-2.5 text-muted hover:text-primary hover:bg-[#F5F5F5] transition-all sm:block"
+            aria-label="Wishlist"
           >
-            <User className="h-4 w-4" />
+            <Heart className="h-[18px] w-[18px]" strokeWidth={1.8} />
+          </Link>
+          <Link
+            href="/login"
+            className="hidden rounded-[14px] p-2.5 text-muted hover:text-primary hover:bg-[#F5F5F5] transition-all sm:block"
+            aria-label="Account"
+          >
+            <User className="h-[18px] w-[18px]" strokeWidth={1.8} />
           </Link>
           <button
             onClick={() => setCartOpen(true)}
-            className="relative rounded-full p-2 text-white/50 transition-colors hover:text-stitch"
+            className="relative rounded-[14px] p-2.5 text-muted hover:text-primary hover:bg-[#F5F5F5] transition-all"
             aria-label="Cart"
           >
-            <ShoppingBag className="h-4 w-4" />
+            <ShoppingBag className="h-[18px] w-[18px]" strokeWidth={1.8} />
             {cartCount > 0 && (
-              <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-lime text-[0.55rem] font-bold text-dark">
+              <span className="absolute -right-0.5 -top-0.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-primary text-[10px] font-bold text-secondary">
                 {cartCount}
               </span>
             )}
           </button>
-          <Link
-            href={waLink("Hey! I want to order from CAPSULE")}
-            target="_blank"
-            rel="noopener"
-            className="hidden rounded-full bg-lime px-5 py-2.5 text-[0.7rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80 lg:block"
-          >
-            Order Now
-          </Link>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="rounded-full p-2 text-stitch lg:hidden"
+            className="rounded-[14px] p-2.5 text-primary hover:bg-[#F5F5F5] transition-all lg:hidden"
             aria-label="Menu"
           >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {menuOpen ? <X className="h-[18px] w-[18px]" strokeWidth={1.8} /> : <Menu className="h-[18px] w-[18px]" strokeWidth={1.8} />}
           </button>
         </div>
       </div>
@@ -105,39 +151,55 @@ export function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="border-t border-white/5 bg-dark px-6 pb-8 pt-4 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 top-[84px] z-30 bg-secondary lg:hidden"
           >
-            <nav className="flex flex-col gap-4">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-sm font-semibold uppercase tracking-[0.1em] text-white/70 transition-colors hover:text-stitch"
-                >
-                  {link.label}
+            <nav className="container-caps flex flex-col gap-1 py-6">
+              {NAV_LINKS.map((link) => {
+                if ("children" in link) {
+                  return (
+                    <div key={link.label} className="space-y-1">
+                      <span className="block px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-muted">
+                        {link.label}
+                      </span>
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => setMenuOpen(false)}
+                          className="block rounded-[14px] px-4 py-3 text-[15px] text-primary hover:bg-[#F5F5F5] transition-colors"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  );
+                }
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block rounded-[14px] px-4 py-3 text-[15px] text-primary hover:bg-[#F5F5F5] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+              <div className="mt-4 flex items-center gap-3 border-t border-border pt-6">
+                <Link href="/wishlist" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 text-[14px] text-muted">
+                  <Heart className="h-4 w-4" strokeWidth={1.8} /> Wishlist
                 </Link>
-              ))}
-              <Link
-                href={waLink("Hey! I want to order from CAPSULE")}
-                target="_blank"
-                rel="noopener"
-                className="mt-2 inline-flex w-fit rounded-full bg-lime px-6 py-3 text-[0.7rem] font-bold uppercase tracking-wider text-dark"
-                onClick={() => setMenuOpen(false)}
-              >
-                Order on WhatsApp
-              </Link>
+                <Link href="/login" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 text-[14px] text-muted">
+                  <User className="h-4 w-4" strokeWidth={1.8} /> Sign In
+                </Link>
+              </div>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
   );
-}
-
-function waLink(text: string) {
-  return `https://wa.me/918088145310?text=${encodeURIComponent(text)}`;
 }

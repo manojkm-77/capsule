@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { Camera, Image, MessageCircle, MapPin } from "lucide-react";
+import { Camera, MessageCircle, MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
 
 const GALLERY = [
   { label: "Street Style Bengaluru", user: "@captown" },
@@ -18,98 +19,75 @@ const GALLERY = [
 
 export default function CommunityPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-10 sm:mb-16 max-w-3xl"
-      >
-        <span className="font-mono text-[0.55rem] font-bold uppercase tracking-[0.2em] text-lime">
-          Community
-        </span>
-        <h1 className="mt-4 font-display text-[clamp(2.5rem,8vw,6rem)] leading-[0.85] tracking-tight">
-          Built by
-          <br />
-          <span className="text-lime">the Culture.</span>
-          <br />
-          For the Culture.
-        </h1>
-        <p className="mt-8 max-w-xl text-base leading-relaxed text-white/40">
-          CAPSULE is more than a cap brand. It's a community of people who value quality,
-          craftsmanship, and the simple act of wearing something well-made.
-        </p>
-      </motion.div>
+    <div className="container-caps py-12">
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Community" }]} />
 
-      <div className="mb-12 sm:mb-20 grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-4">
+      <div className="mt-8 max-w-3xl">
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">Community</span>
+        <h1 className="mt-3 text-[clamp(2rem,5vw,3.25rem)] font-bold leading-[1.1] tracking-tight">
+          Join the
+          <br />
+          <span className="text-muted">CAPSULE Community</span>
+        </h1>
+        <p className="mt-4 text-[15px] leading-relaxed text-muted">
+          Tag us in your fits for a chance to be featured. Follow along on Instagram for the latest drops, community spotlights, and behind-the-scenes content.
+        </p>
+      </div>
+
+      <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {GALLERY.map((item, i) => (
           <motion.div
-            key={item.user}
+            key={item.label}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
-            className="group relative aspect-square overflow-hidden rounded-2xl sm:rounded-3xl bg-card"
+            className="group relative aspect-square overflow-hidden rounded-[22px] bg-[#F5F5F5]"
           >
-            <div
-              className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-              style={{
-                background: `linear-gradient(135deg, #0B0B0B, #1a1a1a${(i % 3) + 5}, #0D0D0D)`,
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-            <div className="absolute bottom-0 left-0 right-0 p-5 opacity-0 transition-opacity group-hover:opacity-100">
-              <p className="text-sm font-medium">{item.label}</p>
-              <p className="mt-1 text-xs text-white/40">{item.user}</p>
+            <div className="flex h-full items-center justify-center text-muted/30">
+              <Camera className="h-10 w-10" strokeWidth={1.8} />
             </div>
-            <div className="absolute right-3 top-3 rounded-full bg-lime/20 p-2 backdrop-blur-sm">
-              <Image className="h-4 w-4 text-lime" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-[13px] font-medium text-secondary">{item.label}</p>
+                <p className="text-[11px] text-secondary/60">{item.user}</p>
+              </div>
             </div>
           </motion.div>
         ))}
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <ScrollReveal>
-          <div className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-10">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-lime/20 bg-lime/5">
-              <MapPin className="h-5 w-5 text-lime" />
-            </div>
-            <h2 className="font-display text-xl sm:text-2xl tracking-tight">
-              India's <span className="text-lime">Capsule</span>
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-white/40">
-              From Bengaluru to Goa, Delhi to Chennai — we've shipped to 25+ cities.
-              Every cap carries a story. Where will yours go?
+      <div className="mt-16 rounded-[28px] border border-border p-8 lg:p-12">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div>
+            <h2 className="text-xl font-bold tracking-tight">Share Your Style</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted">
+              Post a photo wearing your CAPSULE cap, tag us, and use the hashtag #CAPSULEFITS for a chance to be featured on our page.
             </p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.1}>
-          <div className="rounded-3xl border border-white/5 bg-card/50 p-6 sm:p-10">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-lime/20 bg-lime/5">
-              <MessageCircle className="h-5 w-5 text-lime" />
+            <div className="mt-6 flex gap-3">
+              <Button variant="primary" href="https://instagram.com">
+                <Camera className="h-4 w-4" strokeWidth={1.8} /> Follow Us
+              </Button>
             </div>
-            <h2 className="font-display text-xl sm:text-2xl tracking-tight">
-              Join the <span className="text-lime">Movement</span>
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-white/40">
-              Follow us on Instagram, share your fit with #CapsuleCaps, and be part of the
-              next drop. DM us — we actually reply.
-            </p>
-            <Link
-              href={waLink("Hey CAPSULE! I want to be part of the community!")}
-              target="_blank"
-              rel="noopener"
-              className="mt-4 sm:mt-6 inline-flex items-center gap-2 rounded-full bg-lime px-5 sm:px-6 py-2.5 sm:py-3 text-[0.65rem] sm:text-[0.7rem] font-bold uppercase tracking-wider text-dark transition-all hover:bg-lime/80"
-            >
-              <MessageCircle className="h-4 w-4" /> Join on WhatsApp
-            </Link>
           </div>
-        </ScrollReveal>
+          <div className="space-y-4">
+            {[
+              { icon: Camera, label: "@capsule.caps", desc: "Instagram" },
+              { icon: MessageCircle, label: "Chat on WhatsApp", desc: "Quick replies" },
+              { icon: MapPin, label: "Bengaluru, India", desc: "Based in the garden city" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-4 rounded-[16px] border border-border p-4">
+                <item.icon className="h-5 w-5 text-muted" strokeWidth={1.8} />
+                <div className="flex-1">
+                  <p className="text-[14px] font-medium">{item.label}</p>
+                  <p className="text-[12px] text-muted">{item.desc}</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-muted" strokeWidth={1.8} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
-}
-
-function waLink(text: string) {
-  return `https://wa.me/918088145310?text=${encodeURIComponent(text)}`;
 }

@@ -1,25 +1,17 @@
-"use client";
-
 import { Hero } from "@/components/home/hero";
-import { FeaturedCollection } from "@/components/home/featured-collection";
-import { AboutBrand } from "@/components/home/about-brand";
-import { FeaturedDrop } from "@/components/home/featured-drop";
-import { CommunityGallery } from "@/components/home/community-gallery";
+import { Categories } from "@/components/home/categories";
+import { FeaturedProducts } from "@/components/home/featured-products";
 import { Testimonials } from "@/components/home/testimonials";
-import { FAQ } from "@/components/home/faq";
-import { FinalCTA } from "@/components/home/final-cta";
+import { Newsletter } from "@/components/home/newsletter";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <FeaturedCollection />
-      <AboutBrand />
-      <FeaturedDrop />
-      <CommunityGallery />
+      <Categories />
+      <FeaturedProducts />
       <Testimonials />
-      <FAQ />
-      <FinalCTA />
+      <Newsletter />
     </>
   );
 }

@@ -8,7 +8,3 @@ export function cn(...inputs: ClassValue[]) {
 export function formatPrice(price: number) {
   return `₹${price.toLocaleString("en-IN")}`;
 }
-
-export function waLink(text: string) {
-  return `https://wa.me/918088145310?text=${encodeURIComponent(text)}`;
-}
